@@ -20,9 +20,7 @@ export default function ClientSidePage() {
   useEffect(() => {
     async function loadData() {
       try {
-        const response = await fetch(
-          `http://www.omdbapi.com/?s=avengers&apikey=${process.env.NEXT_PUBLIC_OMDB_API_KEY}`
-        );
+        const response = await fetch("/api/search-movies?s=avengers");
         const data = await response.json();
 
         if (data.Response === "True") {
